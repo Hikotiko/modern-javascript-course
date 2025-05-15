@@ -13,5 +13,47 @@
 //
 // Object literals, arrays, and function are all reference types
 
+// String
+const firstName = 'Sara'
 
+// Number
+const age = 30;
+
+// Boolean
+const hasKids = true;
+
+// Null
+const aptNumber = null;  // typeof result for the null value is object this is a bug.
+
+// Undefined
+let score;
+const score1 = undefined;
+
+// BigIng
+const n = 98022342354235432543n
+
+// Symbol
+const id = Symbol('id')
+
+
+// Reference Types
+const numbers = [1,2,3,4]
+
+const person = {
+   name: 'Hikmet',
+}
+
+function sayHello() {
+   console.log('Hello');
+}
+
+
+
+// change the variable name to see the result of log output
+const output = sayHello;
+
+
+
+
+console.log(output, typeof output);
 
