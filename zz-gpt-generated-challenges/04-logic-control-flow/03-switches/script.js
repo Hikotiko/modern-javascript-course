@@ -1,161 +1,159 @@
-// 🔹 Challenge 1: Basic Day Switch
-// Write a function that takes a number (1–7) and logs the day of the week.
+// 🧩 Challenge 1: Basic OR Logic
+// Task: Write a function getDisplayName(userName) that returns
+// the provided userName. If no userName is passed (or it's a falsy value), return "Guest".
 
-// Example: 1 -> "Monday", 7 -> "Sunday"
+// Example:
+// getDisplayName('Hikmet') // → 'Hikmet'
+// getDisplayName('')       // → 'Guest'
 
-number = 9
-
-switch (number) {
-  case 1:
-    console.log('Monday');
-    break;
-  case 2:
-    console.log('Tuesday');
-    break;
-  case 3:
-    console.log('Wednesday');
-    break;
-  case 4:
-    console.log('Thursday');
-    break;
-  case 5:
-    console.log('Friday');
-    break;
-  case 6:
-    console.log('Saturday');
-    break;
-  case 7:
-    console.log('Sunday');
-    break;
-  default:
-    console.log('Provide a number between 1 and 7');
-    break;
-}
-
-// 🔹 Challenge 2: Grade Evaluator
-// Given a grade (A, B, C, D, F), log a message:
-
-// "A" -> "Excellent"
-// "B" -> "Good"
-
-grade = 'C'
-
-switch (grade) {
-  case 'A':
-    console.log('Excellent');
-    break;
-  case 'B':
-    console.log('Good');
-    break;
-  default:
-    console.log('remaining grades');
-    break;
-
-}
-
-// 🔹 Challenge 3: Language Greetings
-// Write a function that takes a language code('en', 'es', 'de') and logs a greeting:
-
-// 'en' -> 'Hello', 'es' -> 'Hola', 'de' -> 'Hallo'
-
-let lang = "de";
-
-switch (lang) {
-  case 'en':
-    console.log('Hello');
-    break;
-  case 'es':
-    console.log('Hola');
-    break;
-  case 'de':
-    console.log('Hallo');
-    break;
-  default:
-    console.log('languange not in system');
-    break;
-}
-
-// 🔹 Challenge 4: Role-Based Access
-// Take a user role and print their access level:
-
-// 'admin' -> 'Full access'
-// 'editor' -> 'Edit access'
-// 'viewer' -> 'Read-only access'
-
-let role = 'editor'
-
-switch (role) {
-  case 'admin':
-    console.log('Full access');
-    break;
-  case 'editor':
-    console.log('Edit access');
-    break;
-  case 'viewer':
-    console.log('Read-only access');
-    break;
-
-  default: console.log('role unknown');
-    break;
-}
-
-// 🧩 Capstone 1: Smart Traffic Light
-// Write a function that takes a color('red', 'yellow', 'green') and logs the driving action:
-
-// 'red' -> 'Stop'
-// 'yellow' -> 'Slow down'
-// 'green' -> 'Go'
-// Default to 'Invalid color'.
-
-function trafficLightAction(color) {
-  switch (color) {
-    case 'red':
-      console.log('Stop');
-      break;
-    case 'yellow':
-      console.log('Slow down');
-      break;
-    case 'green':
-      console.log('Go');
-      break;
-    default:
-      console.log('Invalid color');
-      break;
+function getDisplayName(username) {
+  if (Object.keys(username).length > 0) {
+    console.log(username);
+  } else {
+    console.log('Guest');
   }
 }
 
-trafficLightAction('green'); // Output: Go
+getDisplayName('')
 
+// 🧩 Challenge 2: AND + NOT
+// Task: Write a function canVote(age, citizen) that returns true if
+// the person is 18 or older AND a citizen, otherwise false.
 
-// 🧪 Capstone 2: Turkish Food Menu
-// Write a switch-based menu selector for a Turkish dish:
+// Example:
+//  canVote(20, true)  // → true
+//  canVote(17, true)  // → false
+//  canVote(20, false) // → false
 
-// 1 -> "Menemen"
-// 2 -> "Kuru Fasulye"
-// 3 -> "Lahmacun"
-// 4 -> "İskender"
-// Default -> "Seçim bulunamadı"
+function canVote(age, citizen) {
 
-
-function menu(number) {
-  console.log(' 1 -> "Menemen"\n 2 -> "Kuru Fasulye"\n 3 -> "Lahmacun"\n 4 -> "İskender"\n Default -> "Seçim bulunamadı"\n');
-
-  switch (number) {
-    case 1:
-      console.log('Menemen chosen');
-      break;
-    case 2:
-      console.log('Kuru Fasulye');
-      break;
-    case 3:
-      console.log('Lahmacun');
-      break;
-    case 4:
-      console.log('Iskender');
-      break;
-    default: console.log('Secim bulunamadi');
-      break;
+  if (age >= 18 && citizen) {
+    console.log('Person can vote.');
+  } else {
+    console.log('Sorry can\'t vote');
   }
 }
 
-menu(3)
+canVote(20, false)
+
+// 🧩 Challenge 3: Complex Condition with Ternary
+// Task: Write a function accessLevel(role) that uses a ternary operator to return:
+
+// "Admin Access" if role is "admin",
+
+// "User Access" if role is "user",
+
+// "Guest Access" otherwise.
+
+// Example:
+// accessLevel('admin')  // → 'Admin Access'
+// accessLevel('user')   // → 'User Access'
+// accessLevel('other')  // → 'Guest Access'
+
+function accessLevel(role) {
+  return role === 'admin'
+    ? 'Admin Access'
+    : role === 'user'
+      ? 'User Access'
+      : 'Guest Access';
+}
+
+console.log(accessLevel('user')); // 'User Access'
+
+// 🧩 Challenge 4: Combining Logic in Object Method
+// Task: Create an object account with the following properties:
+
+// username, password, isLoggedIn
+
+// A method checkAccess() that returns "Access granted" if isLoggedIn
+// is true and password.length >= 6, otherwise "Access denied".
+
+// Bonus: Use this inside the method.
+
+const account = {
+  username: 'Hiko',
+  password: 'password',
+  isLoggedIn: true
+}
+
+function checkAccess() {
+  if (account.password.length >= 6 && account.isLoggedIn) {
+    console.log('Access Granted');
+  } else {
+    console.log('Access Denied');
+  }
+}
+
+checkAccess();
+
+
+// 💎 Capstone 1: User Profile Manager
+// Background:
+// You’re building a profile system for a social media site.
+
+// Task:
+//  * Create an object userProfile with:
+//  * firstName, lastName, birthYear, email, hobbies, isActive
+//  * Method getFullName() that returns full name
+//  * Method getAge() that returns age based on birthYear
+//  * Method getSummary() that returns:
+//  "Ahmet Yilmaz | Age: 45 | Active: true | Hobbies: Football, Reading"
+
+// Use logical operators in getSummary() to show "Active: false" if the user isn’t active.
+
+
+const userProfile = {
+  firstName: 'Ahmet',
+  lastName: 'Yilmaz',
+  birthYear: 1980,
+  email: 'a.yilmaz@email.com',
+  hobbies: ['Football', 'Reading'],
+  isActive: true,
+  getFullname: function () {
+    return `${this.firstName} ${this.lastName}`
+  },
+  getAge: function () {
+    const date = new Date()
+    const year = date.getFullYear()
+
+    return year - this.birthYear
+  },
+  getSummary: function () {
+    return `${this.getFullname()} | Age: ${this.getAge()} | Active: ${this.isActive} | Hobbies: ${this.hobbies.join(', ')}`
+  }
+}
+
+
+console.log(userProfile.getSummary());
+
+// 💎 Capstone 2: Real-World App — Smart Login Validator
+// Background:
+// You're building a login validator for a simple app.
+
+// Task:
+//  * Create a function validateLogin(username, password, isAdmin) that:
+//  * Returns "Login success" if username and password are non-empty strings and password length is at least 6
+//  * If isAdmin is true, also check that the username starts with "admin_" using .startsWith()
+//  * Otherwise, return appropriate failure message
+
+// Example:
+// validateLogin("admin_john", "pass123", true)  // "Login success"
+// validateLogin("user", "123", false)           // "Password too short"
+// validateLogin("john", "", false)              // "Username and password required"
+
+function validateLogin(username, password, isAdmin) {
+  if (username.length === 0 || password.length === 0) {
+    console.log('Username and password are required');
+  } else if (password.length < 6) {
+    console.log('Password too short');
+  } else if (isAdmin && username.startsWith('admin_')) {
+    console.log('Admin login success');
+  } else {
+    console.log('Login success');
+  }
+}
+
+validateLogin('user', '', false);        // ➜ Username and password are required
+validateLogin('user', '123', false);     // ➜ Password too short
+validateLogin('admin_Hikmet', '123456', true); // ➜ Admin login success
+validateLogin('hikmet', '123456', false);     // ➜ Login success
